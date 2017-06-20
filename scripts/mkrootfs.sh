@@ -19,6 +19,7 @@ PKGS="$(cat ${DEPS} | tr '\n' ',')"
 which debootstrap 2>&1 >/dev/null || (echo "[ERROR] debootstrap is required to build a rootfs." && exit 1)
 
 [[ -d tmp/rootfs ]] && rm -rf tmp/rootfs
+mkdir -p images
 mkdir -p tmp/rootfs
 debootstrap --include="${PKGS}" "${DEBIAN_REL}" tmp/rootfs "${DEBIAN_MIRROR}"
 cd tmp/rootfs
