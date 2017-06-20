@@ -14,7 +14,7 @@ script:
 - sudo bash scripts/mkrootfs.sh
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker build -f Dockerfile.deploy -t spinlocklabs/chromium-builder-rootfs:latest .
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-      docker push spinlocklabs/chromium-builder-rootfs
+      docker build -f Dockerfile.deploy -t spinlocklabs/chromium-builder-rootfs:latest .;
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push spinlocklabs/chromium-builder-rootfs;
     fi
