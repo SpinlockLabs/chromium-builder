@@ -7,6 +7,8 @@ services:
 before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -qq debootstrap
+- wget http://ftp.us.debian.org/debian/pool/main/d/debootstrap/debootstrap_1.0.89_all.deb -O /tmp/debootstrap.deb
+- sudo dpkg -i /tmp/debootstrap.deb
 
 script:
 - sudo bash scripts/mkrootfs.sh
