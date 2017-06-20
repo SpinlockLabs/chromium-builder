@@ -1,0 +1,19 @@
+language: c
+sudo: required
+
+services:
+- docker
+
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install -qq debootstrap
+
+script:
+- bash scripts/mkrootfs.sh
+- docker build -f Dockerfile.deploy -t spinlocklabs/chromium-builder-rootfs:latest .
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      docker push spinlocklabs/chromium-builder-rootfs
+    fi
+

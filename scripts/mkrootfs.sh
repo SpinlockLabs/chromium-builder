@@ -28,6 +28,6 @@ then
   cp -R ../../overlay/* .
 fi
 
-tar cpJf ../../images/rootfs.tar.xz --one-file-system .
+tar cpJf ../../images/rootfs.txz --one-file-system .
 cd ../..
 rm -rf tmp

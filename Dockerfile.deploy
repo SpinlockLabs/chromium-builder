@@ -1,0 +1,3 @@
+FROM scratch
+
+ADD images/rootfs.txz /rootfs.txz
