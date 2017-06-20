@@ -1,0 +1,10 @@
+lsb-release
+sudo
+systemd
+dbus
+git
+subversion
+python
+file
+locales
+

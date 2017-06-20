@@ -1,0 +1,3 @@
+DEBIAN_MIRROR=http://deb.debian.org/debian/
+DEBIAN_REL=stretch
+

@@ -1,0 +1,5 @@
+[Files]
+Bind={SRCDIR}:/chromium
+
+[Exec]
+WorkingDirectory=/chromium/src
