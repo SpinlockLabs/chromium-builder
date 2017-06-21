@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-BASE="$(realpath ${0}/../..)"
+BASE="$(realpath $(dirname ${0})/..)"
 IMG="chromium-builder"
 
 function info() {
@@ -37,7 +37,7 @@ fi
 
 if [ ! -f "${BASE}/images/rootfs.txz" ]
 then
-  "${SHELL}" "${BASE}/scripts/pull-rootfs.sh"
+  "${SHELL}" "${BASE}/scripts/dlrootfs.sh"
 fi
 
 if machinectl list-images | grep "^${IMG} " >/dev/null 2>&1
