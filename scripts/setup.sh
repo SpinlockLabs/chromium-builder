@@ -37,7 +37,7 @@ fi
 
 if [ ! -f "${BASE}/images/rootfs.txz" ]
 then
-  "${SHELL}" "${BASE}/scripts/mkrootfs.sh"
+  "${SHELL}" "${BASE}/scripts/pull-rootfs.sh"
 fi
 
 if machinectl list-images | grep "^${IMG} " >/dev/null 2>&1
