@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-cd $(dirname $(dirname ${0}))
+cd "$(dirname ${0})/.."
 
 source configs/builder
 
 DEPS="configs/container.deps"
 
-if [[ $* == *"-c"* ]]
+if [[ "${*}" == *"-c"* ]]
 then
   DEPS="${DEPS} configs/chromium.deps"
 fi
@@ -16,7 +16,7 @@ PKGS="$(cat ${DEPS} | tr '\n' ',')"
 
 [[ "${UID}" == "0" ]] || (echo "[ERROR] Root permissions required to build a rootfs." && exit 1)
 
-which debootstrap 2>&1 >/dev/null || (echo "[ERROR] debootstrap is required to build a rootfs." && exit 1)
+which debootstrap >/dev/null 2>&1 || (echo "[ERROR] debootstrap is required to build a rootfs." && exit 1)
 
 [[ -d tmp/rootfs ]] && rm -rf tmp/rootfs
 mkdir -p images
